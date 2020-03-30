@@ -4,31 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://kit.fontawesome.com/01bfd4ad63.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <section class="wrapper">
         <h1>Welcome to the balloon game!</h1>
     </section>
 
-    <section class="wrapper">
-        <div class="balloon1"></div>
-        <div class="balloon2"></div>
-        <div class="balloon3"></div>
-        <div class="balloon4"></div>
-        <div class="balloon5"></div>
-        <div class="balloon6"></div>
-        <div class="balloon7"></div>
-        <div class="balloon8"></div>
-        <div class="balloon9"></div>
+    <section class="wrapper balloonGallery">
+        <div class="balloon">1</div>
+        <div class="balloon">2</div>
+        <div class="balloon">3</div>
+        <div class="balloon">4</div>
+        <div class="balloon">5</div>
+        <div class="balloon">6</div>
+        <div class="balloon">7</div>
+        <div class="balloon">8</div>
+        <div class="balloon">9</div>
+        <div class="balloon">1</div>
+        <div class="balloon">2</div>
+        <div class="balloon">3</div>
+        <div class="balloon">4</div>
+        <div class="balloon">5</div>
+        <div class="balloon">6</div>
+        <div class="balloon">7</div>
+        <div class="balloon">8</div>
+        <div class="balloon">9</div>
+        <div class="balloon">1</div>
+        <div class="balloon">2</div>
+        <div class="balloon">3</div>
+        <div class="balloon">4</div>
+        <div class="balloon">5</div>
+        <div class="balloon">6</div>
+        <div class="balloon">7</div>
+        <div class="balloon">8</div>
+        <div class="balloon">9</div>
+        <div class="balloon">5</div>
+        <div class="balloon">6</div>
+        <div class="balloon">7</div>
+        <div class="balloon">8</div>
+        <div class="balloon">9</div>
     </section>
 
     <section class="wrapper">
         <button>Reset!</button>
     </section>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <style>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const popped = 0
 
-    </style>
+            $(".balloon").on("click", function() {
+                // $(this).hide();
+                $(this).toggleClass("balloonHidden");
+                console.log(".balloon");
+                console.log(this);
+            })
+        })
+    </script>
 </body>
 </html>
