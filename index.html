@@ -12,7 +12,8 @@
         <h1>Welcome to the balloon game!</h1>
     </section>
 
-    <section class="wrapper balloonGallery">
+    <div class="noBalloons">Wow! All balloons popped!</div>
+    <div class="wrapper balloonGallery">
         <div class="balloon">1</div>
         <div class="balloon">2</div>
         <div class="balloon">3</div>
@@ -45,7 +46,7 @@
         <div class="balloon">7</div>
         <div class="balloon">8</div>
         <div class="balloon">9</div>
-    </section>
+    </div>
 
     <section class="wrapper">
         <button>Reset!</button>
@@ -54,15 +55,29 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
         $(document).ready(function() {
-            const popped = 0
+            let popped = 0
 
             $(".balloon").on("click", function() {
                 // $(this).hide();
                 $(this).toggleClass("balloonHidden");
+                $(this).text("POP!")
                 console.log(".balloon");
                 console.log(this);
+                popped += 1;
+
+                if (popped === 3) {
+                    console.log("YOU WIN!");
+                    $(".balloonGallery").replaceWith( $(".noBalloons").show() );
+                }
             })
+
+            console.log(popped);
+
+
         })
+
+
+
     </script>
 </body>
 </html>

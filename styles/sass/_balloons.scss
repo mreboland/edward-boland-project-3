@@ -3,6 +3,11 @@
     height: 50px;
     background-color: red;
     margin: 20px 20px;
+    color: transparent;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .balloonGallery {
@@ -12,5 +17,13 @@
 }
 
 .balloonHidden {
-    visibility: hidden;
+    // visibility: hidden;
+    color: black;
+    background-color: transparent;
+    font-size: 30px;
+}
+
+.noBalloons {
+    text-align: center;
+    display: none;
 }

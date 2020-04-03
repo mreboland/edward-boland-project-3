@@ -223,6 +223,16 @@ html {
   height: 50px;
   background-color: red;
   margin: 20px 20px;
+  color: transparent;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .balloonGallery {
@@ -234,5 +244,12 @@ html {
 }
 
 .balloonHidden {
-  visibility: hidden;
+  color: black;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.noBalloons {
+  text-align: center;
+  display: none;
 }
