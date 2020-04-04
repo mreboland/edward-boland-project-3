@@ -13,11 +13,14 @@
 .balloonGallery {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
+    height: 100vh;
+}
+
+.galleryHide {
+    display: none;
 }
 
 .balloonHidden {
-    // visibility: hidden;
     color: black;
     background-color: transparent;
     font-size: 30px;
@@ -26,4 +29,8 @@
 .noBalloons {
     text-align: center;
     display: none;
+}
+
+div {
+    display: flex;
 }

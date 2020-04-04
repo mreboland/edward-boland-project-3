@@ -218,6 +218,23 @@ html {
   margin: 0 auto;
 }
 
+.title {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .balloon {
   width: 50px;
   height: 50px;
@@ -241,6 +258,11 @@ html {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  height: 100vh;
+}
+
+.galleryHide {
+  display: none;
 }
 
 .balloonHidden {
@@ -252,4 +274,10 @@ html {
 .noBalloons {
   text-align: center;
   display: none;
+}
+
+div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
