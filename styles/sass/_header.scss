@@ -1,7 +1,17 @@
 .title {
+    background-image: url(../assets/backgroundStart.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
+}
+
+#start {
+    border: 1px solid black;
+    background-color: transparent;
+    color: white;
 }
