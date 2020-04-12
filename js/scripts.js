@@ -26,6 +26,7 @@ stretch goals:
 const newGame = {};
 const resetValue = $(".balloonGallery").clone();
 
+
 $(".balloonGallery").hide()
 $(".victory").hide()
 
@@ -37,13 +38,16 @@ $("#start").click(function() {
 });
 
 newGame.userPrompt = () => {
-    userSelect = prompt("how many balloons would you like to pop? if all, type 'all'");
+    userSelect = prompt("how many balloons would you like to pop? If all, type 'all'");
     if (userSelect === "all") {
-        newGame.start(parseInt(48));
-    } else {
+        newGame.start(parseInt(32));
+    } else if (userSelect <= 0) {
+        userSelect = prompt("Please choose a number greater than 0. For all, type 'all'");
+    }else {
         userSelectNum = parseInt(userSelect);
         console.log(userSelectNum);
         newGame.start(userSelectNum);
+        newGame.timer();
     }
 };
 
@@ -69,6 +73,38 @@ $("#reset").click(function() {
     $(".victory").hide();
     newGame.userPrompt();
 });
+
+// The below timer is a jquery plugin
+// plugin acquired from https://www.jqueryscript.net/time-clock/Circular-Countdown-Clock-Plugin-For-jQuery-CircularCountDownJs.html
+// All credit to the creator
+
+newGame.timer = () => {
+    $(".timer").circularCountDown({
+        size: 100,
+        borderSize: 10,
+        colorCircle: 'red',
+        background: 'white',
+        fontFamily: 'sans-serif',
+        fontColor: 'transparent',
+        fontSize: 16,
+        delayToFadeIn: 0,
+        delayToFadeOut: 0,
+        reverseLoading: true,
+        reverseRotation: true,
+        duration: {
+            hours: 0,
+            minutes: 0,
+            seconds: 60
+        },
+        end: function () {
+            alert("you lose!");
+            $(".balloonGallery").replaceWith(resetValue.clone());
+            $(".balloonGallery").show();
+            $(".victory").hide();
+            newGame.userPrompt();
+        }
+    });
+}
 
 newGame.init = () => {
     console.log("init!");
