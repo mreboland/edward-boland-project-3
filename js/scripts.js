@@ -6,7 +6,7 @@ At the top of the page there will be an h1 tag saying 'welcome to the balloon po
 
 The main window will be a grid of divs with either coloured circles or images of balloons.
 Using on click events will track the user clicks on the balloons that will switch from the image
-to the word POP! (or another image that says pop). THe switching will be done with either hidding a div behind the balloon or potentially using .add and .remove to facilitate the switch. 
+to the word POP! (or another image that says pop). The switching will be done with either hiding a div behind the balloon or potentially using .add and .remove to facilitate the switch. 
 
 bottom of the page will have a reset button allowing the user to start again using on click. 
 
@@ -34,20 +34,21 @@ $("#start").click(function() {
     $(".title").hide();
     $(".balloonGallery").show();
     $("#reset").show();
-    newGame.userPrompt();    
+    userSelect = prompt("how many balloons would you like to pop? If all, type 'all'");
+    newGame.userPrompt(userSelect)
 });
 
-newGame.userPrompt = () => {
-    userSelect = prompt("how many balloons would you like to pop? If all, type 'all'");
-    if (userSelect === "all" || userSelect === "All") {
+newGame.userPrompt = (userSelect) => {
+    if (userSelect <= 0) {
+        newChoice = prompt("Please choose a number greater than 0. For all, type 'all'");
+        newGame.userPrompt(newChoice);
+    } else if (userSelect === "all" || userSelect === "All") {
         newGame.start(32);
         newGame.timer(45);
-    } else if (userSelect <= 0) {
-        userSelect = prompt("Please choose a number greater than 0. For all, type 'all'");
     } else if (userSelect <= 10) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
-        newGame.timer(15);
+        newGame.timer(5);
     } else if (userSelect <= 20) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
@@ -105,11 +106,11 @@ newGame.timer = (data) => {
             seconds: data
         },
         end: function () {
-            alert("you lose!");
+            tryAgain = prompt("You lose! How many balloons would you like to pop this time?");
             $(".balloonGallery").replaceWith(resetValue.clone());
             $(".balloonGallery").show();
             $(".victory").hide();
-            newGame.userPrompt();
+            newGame.userPrompt(tryAgain);
         }
     });
 }
