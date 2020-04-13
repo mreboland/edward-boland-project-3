@@ -34,7 +34,7 @@ $("#start").click(function() {
     $(".title").hide();
     $(".balloonGallery").show();
     $("#reset").show();
-    userSelect = prompt("how many balloons would you like to pop? If all, type 'all'");
+    userSelect = prompt("How many balloons would you like to pop? If all, type 'all'");
     newGame.userPrompt(userSelect)
 });
 
@@ -44,7 +44,7 @@ newGame.userPrompt = (userSelect) => {
         newGame.userPrompt(newChoice);
     } else if (userSelect === "all" || userSelect === "All") {
         newGame.start(32);
-        newGame.timer(45);
+        newGame.timer(999);
     } else if (userSelect <= 10) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);

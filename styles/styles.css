@@ -316,7 +316,7 @@ ul li {
 }
 
 .balloonHidden {
-  color: black;
+  color: red;
   background-color: transparent;
   font-size: 30px;
 }
@@ -347,4 +347,39 @@ div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  ul li img {
+    width: 80%;
+  }
+  .balloon {
+    margin: 10px 20px;
+  }
+  .balloonGallery {
+    height: 100%;
+  }
+  #demo {
+    width: 50%;
+  }
+  .timer {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 813px) and (orientation: landscape) {
+  ul li img {
+    width: 80%;
+  }
+  .balloon {
+    margin: 10px 10px;
+  }
+  .balloonGallery {
+    height: 100%;
+  }
+  .timer {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 }
