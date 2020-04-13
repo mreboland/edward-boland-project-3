@@ -48,15 +48,15 @@ newGame.userPrompt = (userSelect) => {
     } else if (userSelect <= 10) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
-        newGame.timer(5);
+        newGame.timer(10);
     } else if (userSelect <= 20) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
-        newGame.timer(30);
+        newGame.timer(20);
     } else {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
-        newGame.timer(37);
+        newGame.timer(30);
     }
 };
 
@@ -69,9 +69,9 @@ newGame.start = (input) => {
         popped++;
     
         if (popped === input) {
-            console.log("YOU WIN!");
             $(".balloonGallery").hide();
             $(".victory").show();
+            $("#demo").countdowntimer("destroy");
         }
     })
 };
@@ -80,37 +80,27 @@ $("#reset").click(function() {
     $(".balloonGallery").replaceWith(resetValue.clone());
     $(".balloonGallery").show();
     $(".victory").hide();
-    newGame.userPrompt();
+    startAgain = prompt("You win! How many balloons would you like to pop this time?");
+    newGame.userPrompt(startAgain);
 });
 
 // The below timer is a jquery plugin
-// plugin acquired from https://www.jqueryscript.net/time-clock/Circular-Countdown-Clock-Plugin-For-jQuery-CircularCountDownJs.html
+// plugin acquired from https://www.jqueryscript.net/time-clock/Customizable-jQuery-Countdown-Timer-Plugin-countdownTimer.html
 // All credit to the creator
 
 newGame.timer = (data) => {
-    $(".timer").circularCountDown({
-        size: 100,
-        borderSize: 10,
-        colorCircle: 'red',
-        background: 'white',
-        fontFamily: 'sans-serif',
-        fontColor: 'transparent',
-        fontSize: 16,
-        delayToFadeIn: 0,
-        delayToFadeOut: 0,
-        reverseLoading: true,
-        reverseRotation: true,
-        duration: {
-            hours: 0,
-            minutes: 0,
-            seconds: data
-        },
-        end: function () {
+    $('#demo').countdowntimer({
+        seconds: data,
+        size: "lg",
+        borderColor: "red",
+        fontColor: "#FFFFFF",
+        backgroundColor: "#000000",
+        timeUp: function () {
             tryAgain = prompt("You lose! How many balloons would you like to pop this time?");
             $(".balloonGallery").replaceWith(resetValue.clone());
             $(".balloonGallery").show();
             $(".victory").hide();
             newGame.userPrompt(tryAgain);
-        }
+        },
     });
 }
