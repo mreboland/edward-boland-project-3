@@ -44,7 +44,7 @@ newGame.userPrompt = (userSelect) => {
         newGame.userPrompt(newChoice);
     } else if (userSelect === "all" || userSelect === "All") {
         newGame.start(32);
-        newGame.timer(999);
+        newGame.timer(45);
     } else if (userSelect <= 10) {
         userSelectNum = parseInt(userSelect);
         newGame.start(userSelectNum);
